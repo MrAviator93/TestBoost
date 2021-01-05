@@ -19,7 +19,7 @@ all: main_prog
 main_prog:
 	clear
 	@echo "Compiling the main ..."
-	$(CC) $(CINC_DIR) $(CLIB_DIR) $(CFLAGS) $(CLIBS) -o main main.cpp
+	$(CC) $(CINC_DIR) $(CLIB_DIR) $(CFLAGS) $(CLIBS) -o main.out main.cpp
 
 clean:
 	rm -rf *.o main
