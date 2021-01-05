@@ -2,7 +2,7 @@
 CC := g++
 
 # Compile flags, use -DSOME_DEFINE to define something ...
-CFLAGS := -std=c++11 -Wall -DFMT_HEADER_ONLY
+CFLAGS := -std=c++17 -Wall -DFMT_HEADER_ONLY
 
 # Additional include directories
 CINC_DIR := -I/home/pi/other_src/fmt/include/
