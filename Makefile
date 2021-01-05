@@ -22,4 +22,4 @@ main_prog:
 	$(CC) $(CINC_DIR) $(CLIB_DIR) $(CFLAGS) $(CLIBS) -o main.out main.cpp
 
 clean:
-	rm -rf *.o main
+	rm -rf *.bin main.out
