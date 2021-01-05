@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <thread>
+
+#include <boost/filesystem.hpp>
+#include <boost/program_options.hpp>
+#include <fmt/format.h>
+
+// There is an issue with fmt/format
+// https://github.com/fmtlib/fmt/issues/795
+
+namespace fs = boost::filesystem;
+namespace po = boost::program_options;
+
+void threadMethod()
+{
+    for ( int i = 0; i < 10; i++ )
+    { 
+        fmt::print( "Threaded method...\n" );
+    }
+}
+
+int main( int argc, char* argv[] )
+{
+    fmt::print( "Welcome to Raspbery PI 4!\n" );
+
+    fmt::print( 
+        "Thread available: {}\n", 
+        std::thread::hardware_concurrency() );
+
+    po::options_description optDesc;
+    po::variables_map varMap;
+
+    int value { 0 };
+    std::vector<std::string> fileNames;
+
+    optDesc.add_options()
+        ( "help,h", "Some help message here ...") 
+        ( "value,v", po::value< int >( &value )->default_value( 75 ), "Value for ..." )
+        ( "files,f", po::value< std::vector< std::string > >( &fileNames )->multitoken(), "Files ..." );
+
+    // To print help all you need is to pass --help
+    // To set a value you either use --value or -v
+
+    po::store( po::parse_command_line( argc, argv, optDesc ), varMap );
+    po::notify( varMap) ;
+
+    if ( varMap.count( "help" ) )
+    {
+        std::cout << optDesc << std::endl;
+    }
+
+    if ( varMap.count( "value" ) )
+    {
+        std::cout << varMap[ "value" ].as< int >() << std::endl;
+    }
+
+    for (auto i = 0; i < fileNames.size(); i++)
+    {
+        fmt::print( "File Name: {}\n", fileNames[ i ] );
+    }
+
+    std::thread th( threadMethod );
+
+    std::string fileName { "test.bin" };
+
+    if ( fs::exists( fileName ) )
+    {
+        fmt::print(
+            "File {} already exists, but we will overwrite it.\n", 
+            fileName );
+    }
+
+    FILE* pOutFile = nullptr;
+    pOutFile = fopen( &fileName[0], "wb" );
+
+    if ( pOutFile )
+    {
+        fwrite( &value, sizeof(int), 1, pOutFile );
+        fclose( pOutFile );
+
+        fmt::print( "INFO: FILE CREATED AND WRITTEN\n" );
+    }
+    else
+    {
+        fmt::print( "ERROR: COULDN'T CREATE A FILE!\n" );
+    }
+
+    th.join();
+
+    return 0;
+}
