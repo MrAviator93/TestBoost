@@ -46,7 +46,7 @@ int main( int argc, char* argv[] )
     // To set a value you either use --value or -v
 
     po::store( po::parse_command_line( argc, argv, optDesc ), varMap );
-    po::notify( varMap) ;
+    po::notify( varMap ) ;
 
     if ( varMap.count( "help" ) )
     {
@@ -58,7 +58,7 @@ int main( int argc, char* argv[] )
         std::cout << varMap[ "value" ].as< int >() << std::endl;
     }
 
-    for (auto i = 0; i < fileNames.size(); i++)
+    for (auto i = 0u; i < fileNames.size(); i++)
     {
         fmt::print( "File Name: {}\n", fileNames[ i ] );
     }
@@ -74,11 +74,10 @@ int main( int argc, char* argv[] )
             fileName );
     }
 
-    std::string valueStr = "17.5f";
+    std::string valueStr = "17.5";
 
     fmt::print( "Lexical cast example 1: {}\n", boost::lexical_cast< std::string >( 10.5f ) );
-    fmt::print( "Lexical cast example 2: {}\n", boost::lexical_cast< float >( valueStr) );
-
+    fmt::print( "Lexical cast example 2: {}\n", boost::lexical_cast< float >( valueStr ) );
 
     FILE* pOutFile = nullptr;
     pOutFile = fopen( &fileName[0], "wb" );
@@ -88,11 +87,11 @@ int main( int argc, char* argv[] )
         fwrite( &value, sizeof( int ), 1, pOutFile );
         fclose( pOutFile );
 
-        fmt::print( "INFO: FILE CREATED AND WRITTEN\n" );
+        fmt::print( "INFO: FILE '{}' CREATED AND WRITTEN\n", fileName );
     }
     else
     {
-        fmt::print( "ERROR: COULDN'T CREATE A FILE!\n" );
+        fmt::print( "ERROR: COULDN'T CREATE '{}' FILE!\n", fileName );
     }
 
     th.join();
