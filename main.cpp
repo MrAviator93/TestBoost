@@ -5,6 +5,7 @@
 #include <thread>
 
 #include <boost/filesystem.hpp>
+#include <boost/lexical_cast.hpp>
 #include <boost/program_options.hpp>
 #include <fmt/format.h>
 
@@ -73,12 +74,18 @@ int main( int argc, char* argv[] )
             fileName );
     }
 
+    std::string valueStr = "17.5f";
+
+    fmt::print( "Lexical cast example 1: {}\n", boost::lexical_cast< std::string >( 10.5f ) );
+    fmt::print( "Lexical cast example 2: {}\n", boost::lexical_cast< float >( valueStr) );
+
+
     FILE* pOutFile = nullptr;
     pOutFile = fopen( &fileName[0], "wb" );
 
     if ( pOutFile )
     {
-        fwrite( &value, sizeof(int), 1, pOutFile );
+        fwrite( &value, sizeof( int ), 1, pOutFile );
         fclose( pOutFile );
 
         fmt::print( "INFO: FILE CREATED AND WRITTEN\n" );
