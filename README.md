@@ -1,6 +1,9 @@
 # TestBoost
 Experimental project to test boost filesystem and boost options libraries as well as fmtlib on Raspberry Pi 4
 
+# Requirements
+A C++ compiler that supports C++ 17 revision, Boost C++ libraries and fmt formatting library.
+
 # License
 Copyright 2021 Arturs Kalnins
 
