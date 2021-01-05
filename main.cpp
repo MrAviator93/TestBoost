@@ -1,15 +1,14 @@
-#include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <thread>
-
 #include <boost/filesystem.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/program_options.hpp>
 #include <fmt/format.h>
 
-// There is an issue with fmt/format
+#include <iostream>
+#include <vector>
+#include <string>
+#include <thread>
+
+// There is an issue with fmt/format (fmtlib)
 // https://github.com/fmtlib/fmt/issues/795
 
 namespace fs = boost::filesystem;
