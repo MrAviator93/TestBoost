@@ -1,18 +1,20 @@
 /***********************************************************************
 FILE MAIN.CPP CONTAINS EXPERIMENTAL CODE RELATED TO BOOST AND FMTLIB
 
-FILE UTMOST REVIEW DONE ON (05.01.2021) BY ARTUR K. 
+FILE UTMOST REVIEW DONE ON (06.01.2021) BY ARTUR K. 
 ***********************************************************************/
 
 #include <boost/filesystem.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/program_options.hpp>
 #include <fmt/format.h>
+#include <date/date.h>
 
 #include <iostream>
 #include <vector>
 #include <string>
 #include <thread>
+#include <chrono>
 
 // There is an issue with fmt/format (fmtlib)
 // https://github.com/fmtlib/fmt/issues/795
@@ -31,6 +33,20 @@ void threadMethod()
 int main( int argc, char* argv[] )
 {
     fmt::print( "Welcome to Raspbery PI 4!\n" );
+
+    fmt::print( 
+        "Current time and date: {}\n", 
+        date::format( "%F %T %Z", floor< std::chrono::milliseconds >( std::chrono::system_clock::now() ) ) );
+
+    auto revDate = date::January/6/2021;
+
+    fmt::print( "Revision completed on: {}\n", date::format( "%F", revDate ) );
+
+    fmt::print( "Day of the week: {}\n", date::format( "%A", revDate ) );
+
+    fmt::print( "Day of the week: {}\n", date::format( "%A", date::weekday{ revDate } ) );
+
+    // For all formats see: https://howardhinnant.github.io/date/date.html#to_stream_formatting
 
     fmt::print( 
         "Thread available: {}\n", 
