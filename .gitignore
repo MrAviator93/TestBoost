@@ -1,8 +1,8 @@
 # Editor Related files
-.vscode
+*.vscode
 
 # Project generated files
-.bin
+*.bin
 
 # Prerequisites
 *.d
