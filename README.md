@@ -13,6 +13,9 @@ https://www.boost.org/
 For fmtlib, clone the following repository:
 https://github.com/fmtlib/fmt
 
+For date library, clone the following repository:
+https://github.com/HowardHinnant/date
+
 # License
 Copyright 2021 Arturs Kalnins
 
