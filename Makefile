@@ -1,7 +1,7 @@
 # Variable declarations
 CC := g++
 
-# Compile flags, use -DSOME_DEFINE to define something ...
+# Compile flags
 CFLAGS := -std=c++17 -Wall -DFMT_HEADER_ONLY
 
 # Additional include directories
