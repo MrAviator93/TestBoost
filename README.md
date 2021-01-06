@@ -10,7 +10,7 @@ _sudo apt-get install libboost*.**-all_
 For latest version of boost libraries see:
 https://www.boost.org/
 
-For fmtlib clone the following repository:
+For fmtlib, clone the following repository:
 https://github.com/fmtlib/fmt
 
 # License
