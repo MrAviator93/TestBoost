@@ -11,7 +11,7 @@ For latest version of boost libraries see:
 https://www.boost.org/
 
 For fmtlib clone the following repository:
-https://github.com/fmtlib/fmt
+[GitHub]https://github.com/fmtlib/fmt
 
 # License
 Copyright 2021 Arturs Kalnins
