@@ -5,13 +5,14 @@ Experimental project to test boost filesystem and boost options libraries as wel
 A C++ compiler that supports C++ 17 revision, Boost C++ libraries and fmt formatting library.
 
 Use the following command to install boost libraries:
-_sudo apt-get install libboost*.**-all_
+_sudo apt-get install libboost*.**-dev_
 
 For latest version of boost libraries see:
 https://www.boost.org/
 
 For fmtlib, clone the following repository:
 https://github.com/fmtlib/fmt
+_sudo apt-get install libfmt-dev_
 
 For date library, clone the following repository:
 https://github.com/HowardHinnant/date

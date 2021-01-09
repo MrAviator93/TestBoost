@@ -11,7 +11,6 @@ CINC_DIR := -I/home/pi/other_src/fmt/include/
 CLIB_DIR := -L/home/pi/other_src/fmt/
 
 # Add all necessery libs that will be used in the project
-# All boost libs are located here: -L/usr/lib/arm-linux-gnueabihf 
 CLIBS := -lpthread -lboost_filesystem -lboost_program_options
 
 all: main_prog

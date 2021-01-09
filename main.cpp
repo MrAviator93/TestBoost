@@ -36,7 +36,7 @@ int main( int argc, char* argv[] )
 
     fmt::print( 
         "Current time and date: {}\n", 
-        date::format( "%F %T %Z", floor< std::chrono::milliseconds >( std::chrono::system_clock::now() ) ) );
+        date::format( "%F %T %Z", date::floor< std::chrono::milliseconds >( std::chrono::system_clock::now() ) ) );
 
     auto revDate = date::January/6/2021;
 
