@@ -7,11 +7,11 @@ A C++ compiler that supports C++ 17 revision, Boost C++ libraries and fmt format
 Use the following command to install boost libraries:
 _sudo apt-get install libboost*.**-dev_
 
-For latest version of boost libraries see:
+For latest version of boost libraries see:<br/>
 https://www.boost.org/
 
-For fmtlib, clone the following repository:
-https://github.com/fmtlib/fmt
+For fmtlib, clone the following repository:<br/>
+https://github.com/fmtlib/fmt<br/>
 _sudo apt-get install libfmt-dev_
 
 For date library, clone the following repository:
